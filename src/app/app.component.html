@@ -1,0 +1,40 @@
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+  <div class="navbar-nav">
+    <a
+      class="nav-item nav-link"
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a class="nav-item nav-link" routerLink="/devices" routerLinkActive="active"
+      >Devices</a
+    >
+
+    <a
+      class="nav-item nav-link"
+      routerLink="/incidents"
+      routerLinkActive="active"
+      >Incidents</a
+    >
+
+    <a class="nav-item nav-link" routerLink="/reports" routerLinkActive="active"
+      >Reports</a
+    >
+
+    <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active"
+      >Users</a
+    >
+
+    <button class="btn btn-link nav-item nav-link" (click)="logout()">
+      Logout
+    </button>
+  </div>
+</nav>
+
+<!-- main app container -->
+<div class="app-container bg-light">
+  <alert></alert>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,125 @@
+<h1>Edit Incident</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-5">
+      <label>Device Id</label>
+      <input
+        type="text"
+        formControlName="deviceId"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.deviceId.errors }"
+      />
+      <div *ngIf="submitted && f.deviceId.errors" class="invalid-feedback">
+        <div *ngIf="f.deviceId.errors.required">Device Id is required</div>
+      </div>
+    </div>
+
+    <div class="form-group col-5">
+      <label>Device Name</label>
+      <input
+        type="text"
+        formControlName="deviceName"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.deviceName.errors }"
+      />
+      <div *ngIf="submitted && f.deviceName.errors" class="invalid-feedback">
+        <div *ngIf="f.deviceName.errors.required">Device Name is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-5">
+      <label>Error Code</label>
+      <input
+        type="text"
+        formControlName="errorCodeId"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.errorCodeId.errors }"
+      />
+      <div *ngIf="submitted && f.errorCodeId.errors" class="invalid-feedback">
+        <div *ngIf="f.errorCodeId.errors.required">Error Code is required</div>
+      </div>
+    </div>
+
+    <div class="form-group col-5">
+      <label>Error Description</label>
+      <input
+        type="text"
+        formControlName="errorCode"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.errorCode.errors }"
+      />
+      <div *ngIf="submitted && f.errorCode.errors" class="invalid-feedback">
+        <div *ngIf="f.errorCode.errors.required">
+          Error Description is required
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-5">
+      <label>Start Time</label>
+      <input
+        type="text"
+        formControlName="startTime"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.startTime.errors }"
+      />
+      <div *ngIf="submitted && f.startTime.errors" class="invalid-feedback">
+        <div *ngIf="f.startTime.errors.required">Start Time is required</div>
+      </div>
+    </div>
+
+    <div class="form-group col-5">
+      <label>End Time</label>
+      <input
+        type="text"
+        formControlName="endTime"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.endTime.errors }"
+      />
+      <!--
+      <div *ngIf="submitted && f.ipAddress.errors" class="invalid-feedback">
+        <div *ngIf="f.ipAddress.errors.required">
+          Device IP Address is required
+        </div>
+      </div>
+    --></div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-5">
+      <label>Incident Status</label>
+      <select
+        formControlName="incidentStatus"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.incidentStatus.errors }"
+      >
+        <option value=""></option>
+        <option value="Resolved">Resolved</option>
+        <option value="Unresolved">Unresolved</option>
+        <option value="UnderInvestigation">Under Investigation</option>
+      </select>
+      <div
+        *ngIf="submitted && f.incidentStatus.errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f.incidentStatus.errors.required">
+          Incident Status is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-5"></div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span
+        *ngIf="loading"
+        class="spinner-border spinner-border-sm mr-1"
+      ></span>
+      Save
+    </button>
+    <a routerLink="/incidents" class="btn btn-link">Cancel</a>
+  </div>
+</form>

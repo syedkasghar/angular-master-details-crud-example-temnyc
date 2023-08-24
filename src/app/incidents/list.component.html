@@ -1,0 +1,43 @@
+<h1>Incidents</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="width: 10%">ID</th>
+      <th style="width: 10%">Device Id</th>
+      <th style="width: 15%">Device Name</th>
+      <th style="width: 10%">Error Code</th>
+      <th style="width: 15%">Error Description</th>
+      <th style="width: 10%">Start Time</th>
+      <th style="width: 10%">End Time</th>
+      <th style="width: 10%">Status</th>
+
+      <th style="width: 10%"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let incident of incidents">
+      <td>{{ incident.id }}</td>
+      <td>{{ incident.deviceId }}</td>
+      <td>{{ incident.deviceName }}</td>
+      <td>{{ incident.errorCodeId }}</td>
+      <td>{{ incident.errorCode }}</td>
+      <td>{{ incident.startDateTime }}</td>
+      <td>{{ incident.endDateTime }}</td>
+      <td>{{ incident.incidentStatusText }}</td>
+
+      <td style="white-space: nowrap">
+        <a
+          routerLink="edit/{{ incident.id }}"
+          class="btn btn-sm btn-primary mr-1"
+          >Edit</a
+        >
+      </td>
+    </tr>
+    <tr *ngIf="!incidents">
+      <td colspan="9" class="text-center">
+        <span class="spinner-border spinner-border-lg align-center"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>

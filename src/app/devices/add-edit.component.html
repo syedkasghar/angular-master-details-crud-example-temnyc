@@ -1,0 +1,78 @@
+<h1 *ngIf="isAddMode">Add Device</h1>
+<h1 *ngIf="!isAddMode">Edit Device</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group col-5">
+      <label>Device Name</label>
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+      />
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required">Device Name is required</div>
+      </div>
+    </div>
+    <div class="form-group col-5">
+      <label>IP Address</label>
+      <input
+        type="text"
+        formControlName="ipAddress"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.ipAddress.errors }"
+      />
+      <div *ngIf="submitted && f.ipAddress.errors" class="invalid-feedback">
+        <div *ngIf="f.ipAddress.errors.required">
+          Device IP Address is required
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-5">
+      <label>Device Type</label>
+      <select
+        formControlName="deviceType"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.deviceType.errors }"
+      >
+        <option value=""></option>
+        <option value="Laptop">Laptop</option>
+        <option value="Desktop">Desktop</option>
+        <option value="Server">Server</option>
+        <option value="Router">Router</option>
+        <option value="Switch">Switch</option>
+      </select>
+      <div *ngIf="submitted && f.deviceType.errors" class="invalid-feedback">
+        <div *ngIf="f.deviceType.errors.required">Device Type is required</div>
+      </div>
+    </div>
+    <div class="form-group col-5">
+      <label>Device Status</label>
+      <select
+        formControlName="isActive"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.isActive.errors }"
+      >
+        <option value=""></option>
+        <option value="true">Active</option>
+        <option value="false">In Active</option>
+      </select>
+      <div *ngIf="submitted && f.isActive.errors" class="invalid-feedback">
+        <div *ngIf="f.isActive.errors.required">Device Status is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span
+        *ngIf="loading"
+        class="spinner-border spinner-border-sm mr-1"
+      ></span>
+      Save
+    </button>
+    <a routerLink="/devices" class="btn btn-link">Cancel</a>
+  </div>
+</form>
