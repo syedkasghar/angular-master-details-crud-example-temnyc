@@ -11,7 +11,7 @@ export class ReportComponent implements OnInit {
   //form: FormGroup;
   //id: string;
   //isAddMode: boolean;
-  loading = false;
+  deviceIncidentss = null;
   //submitted = false;
 
   constructor(

@@ -16,6 +16,9 @@ const devicesModule = () =>
 const incidentsModule = () =>
   import('./incidents/incidents.module').then((x) => x.IncidentsModule);
 
+const reportsModule = () =>
+  import('./reports/reports.module').then((x) => x.ReportsModule);
+
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', loadChildren: loginModule },
@@ -26,6 +29,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
+  { path: 'reports', loadChildren: reportsModule, canActivate: [AuthGuard] },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' },
