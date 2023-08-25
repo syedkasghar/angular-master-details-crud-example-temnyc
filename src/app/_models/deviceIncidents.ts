@@ -1,4 +1,4 @@
-export class DeviceIncidents {
+export class DeviceIncidentss {
   deviceName: string;
   incidentsCount: number;
 }

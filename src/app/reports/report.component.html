@@ -8,15 +8,13 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let deviceIncident of deviceIncidentss">
-      <td style="white-space: nowrap">
-        <a routerLink="devices" class="btn btn-sm btn-primary mr-1">
-          {{ deviceIncident.deviceName }}</a
-        >
+    <tr *ngFor="let deviceIncident of deviceIncidents">
+      <td>
+        {{ deviceIncident.deviceName }}
       </td>
       <td>{{ deviceIncident.incidentsCount }}</td>
     </tr>
-    <tr *ngIf="!deviceIncidentss">
+    <tr *ngIf="!deviceIncidents">
       <td colspan="9" class="text-center">
         <span class="spinner-border spinner-border-lg align-center"></span>
       </td>

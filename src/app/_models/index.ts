@@ -5,3 +5,4 @@ export * from './incident';
 export * from './incidentStatus';
 export * from './user';
 export * from './role';
+export * from './deviceIncidents';

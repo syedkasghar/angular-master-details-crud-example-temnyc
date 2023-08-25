@@ -5,22 +5,28 @@ import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../_services';
 import { MustMatch } from '../_helpers';
-
+import { ReportsService } from '../_services';
 @Component({ templateUrl: 'report.component.html' })
 export class ReportComponent implements OnInit {
   //form: FormGroup;
   //id: string;
   //isAddMode: boolean;
-  deviceIncidentss = null;
+  deviceIncidents = null;
   //submitted = false;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) {}
+  constructor(private deviceIncidentService: ReportsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('inceidents');
+    this.deviceIncidentService
+      .getAll()
+      .pipe(first())
+      .subscribe(
+        (deviceIncidentss) => (this.deviceIncidents = deviceIncidentss)
+      );
+
+    // console.log(this.incidents);
+  }
 
   // convenience getter for easy access to form fields
 }
