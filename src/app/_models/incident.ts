@@ -6,6 +6,7 @@ export class Incident {
   deviceName: string;
   errorCodeId: number;
   errorCode: string;
+  errorCodeDescription: string;
   StartDateTime: string;
   endDateTime: string;
   incidentStatus: IncidentStatus;

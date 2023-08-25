@@ -17,8 +17,8 @@
       <td>{{ device.name }}</td>
       <td>{{ device.ipAddress }}</td>
       <td>{{ device.deviceType }}</td>
-      <td *ngIf="device.isActive === 'true'">Active</td>
-      <td *ngIf="device.isActive === 'false'">In Active</td>
+      <td *ngIf="device.isActive">Active</td>
+      <td *ngIf="!device.isActive">In Active</td>
 
       <td style="white-space: nowrap">
         <a routerLink="edit/{{ device.id }}" class="btn btn-sm btn-primary mr-1"
